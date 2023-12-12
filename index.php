@@ -46,10 +46,20 @@ $conn = new mysqli($localhost, $user, $password, $Db);
 // }
 #update column
 // $sql="UPDATE myGuests SET Fastname='adiv' WHERE ID=1";
-$sql ="DELETE FROM myGuests WHERE id=2";
-if($conn->query($sql)===TRUE){
-    echo "delete data";
-}else{
-    echo"not delete";
-}
+#delete
+// $sql ="DELETE FROM myGuests WHERE id=2";
+// if($conn->query($sql)===TRUE){
+//     echo "delete data";
+// }else{
+//     echo"not delete";
+// }
+$sql="INSERT INTO myGuests (Fastname,Lastname,Email)
+ VALUES('Nurul','Ahmed','d@gmail.com');";
+
+$sql .="INSERT INTO myGuests (Fastname,Lastname,Email)
+ VALUES('Hadis','Ahmed','Hadis@gmail.com');";
+
+$sql .="INSERT INTO myGuests (Fastname,Lastname,Email)
+ VALUES('tasif','Ahmed','tasif@gmail.com')";
+ $conn->multi_query($sql);
 $conn->close();
